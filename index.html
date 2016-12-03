@@ -1,0 +1,72 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="js/snowstorm.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.imagefit.js"></script>
+  <script type="text/javascript" src="js/santarun.js"></script>
+  <script>
+	$(function(){
+      $('.imagefit').imagefit();
+	  
+  	  // Do a sladerun with santa
+  	  SantaRun.start();
+
+
+    });
+  </script>
+
+  <script type="text/javascript">
+    var currentImageCycle = 1;
+
+    $(function() {
+      setInterval(updateDecorationLights, 500);
+    });
+
+    function updateDecorationLights()  {
+      var lightSrc = $("#decoration-lights");
+      switch(currentImageCycle) {
+        case 1:
+          lightSrc.attr("src", "images/lights/hiofjul-lights1.png");
+          break;
+
+        case 2:
+          lightSrc.attr("src", "images/lights/hiofjul-lights2.png");
+          break;
+
+        case 3:
+          lightSrc.attr("src", "images/lights/hiofjul-lights3.png");
+          break;
+
+        default:
+          lightSrc.attr("src", "images/lights/hiofjul-lights1.png");
+      }
+      currentImageCycle++;
+      if(currentImageCycle>3)
+        currentImageCycle = 1;
+    }
+  </script>
+</head>
+
+
+<body>
+  <div class="frameholder">
+    <div style="z-order:0;" class="layer imagefit" desc="background">
+      <img src="images/background/hiofjul.png" />
+    </div>
+
+    <div style="z-order:1;" class="layer imagefit" desc="background">
+      <img id="decoration-lights" src="images/lights/hiofjul-lights1.png" />
+    </div>
+
+    <div style="z-order:99; position:absolute;" class="" id="slade" desc="Santas playground">
+      <img src="images/slade.png"/>
+    </div>
+
+    <div style="z-order:100;" class="layer" desc="crossbars"></div>
+  </div>
+
+</body>
+
+</html>
