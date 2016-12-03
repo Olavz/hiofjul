@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script src="js/snowstorm.js"></script>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.imagefit.js"></script>
+  <script type="text/javascript" src="js/santarun.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script type="text/javascript" src="js/socketio.js"></script>
+  <script type="text/javascript" src="js/canvas.js"></script>
+  <script>
+	$(function(){
+      $('.imagefit').imagefit();
+
+	  // Do a sladerun with santa
+	  SantaRun.start();
+    });
+  </script>
+
+  <script type="text/javascript">
+    var currentImageCycle = 1;
+
+    $(function() {
+      setInterval(updateDecorationLights, 500);
+
+    });
+
+
+    function updateDecorationLights()  {
+      var lightSrc = $("#decoration-lights");
+      var path = "/images/lights/";
+
+      switch(currentImageCycle) {
+        case 1:
+          lightSrc.attr("src", path+"hiofjul-lights1.png");
+          break;
+
+        case 2:
+          lightSrc.attr("src", path+"hiofjul-lights2.png");
+          break;
+
+        case 3:
+          lightSrc.attr("src", path+"hiofjul-lights3.png");
+          break;
+
+        default:
+          lightSrc.attr("src", path+"hiofjul-lights1.png");
+      }
+      currentImageCycle++;
+      if(currentImageCycle>3)
+        currentImageCycle = 1;
+    }
+  </script>
+</head>
+
+
+<body>
+  <div class="frameholder">
+
+    <div class="layer imagefit" desc="background">
+      <img src="/images/background/hiofjul.png" />
+    </div>
+
+    <div>
+      <canvas id="theCanvas"></canvas>
+    </div>
+
+    <!--div class="layer imagefit" desc="background">
+      <img src="/images/background/hiofjul-ground-school.png" />
+    </div-->
+
+    <div class="layer imagefit" desc="background">
+      <img id="decoration-lights" src="/images/lights/hiofjul-lights1.png" />
+    </div>
+
+    <div style="position:absolute;" class="" id="slade" desc="Santas playground">
+      <img src="images/slade.png"/>
+    </div>
+
+    <div class='dato'>
+      <h1 id='date'></h1>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

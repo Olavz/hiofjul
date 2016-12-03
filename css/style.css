@@ -19,3 +19,21 @@ body {
   bottom:0;
   right:0;
 }
+
+#theCanvas{
+  position: absolute;
+}
+
+.dato{
+  z-index: 200;
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+}
+
+.dato h1, .dato h2{
+  font-family: Lobster;
+  font-size: 80px;
+  color: #f33;
+  margin:0;
+}

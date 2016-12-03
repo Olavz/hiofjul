@@ -1,0 +1,63 @@
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.imagefit.js"></script>
+
+  <script type="text/javascript">
+    var currentImageCycle = 1;
+
+    $(function() {
+      $('.imagefit').imagefit();
+      setInterval(imageCycle, 1000);
+    });
+
+    function imageCycle()  {
+      var lightSrc = $("#draw-steps");
+      switch(currentImageCycle) {
+        case 1:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step1.png");
+          break;
+        case 2:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step2.png");
+          break;
+        case 3:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step3.png");
+          break;
+        case 4:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step4.png");
+          break;
+        case 5:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step5.png");
+          break;
+        case 6:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step6.png");
+          break;
+        case 7:
+          // we are done. navigate again
+          location.href = "/";
+          break;
+
+        default:
+          lightSrc.attr("src", "/jul/images/hiofjul/hiofjul-step1.png");
+      }
+      currentImageCycle++;
+      if(currentImageCycle>7)
+        currentImageCycle = 1;
+    }
+  </script>
+</head>
+
+
+<body>
+  <div class="frameholder">
+    <div style="z-order:0;" class="layer imagefit" desc="background">
+      <img src="/jul/images/hiofjul/hiofjul-step1.png" id="draw-steps" />
+    </div>
+
+  </div>
+
+</body>
+
+</html>
