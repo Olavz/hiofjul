@@ -1,0 +1,23 @@
+{
+  "name": "hiofjul",
+  "version": "1.0.0",
+  "description": "Recovered files from the Christmas project 2014 with @anskaal and @cso done at HiØ Makespace.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Olavz/hiofjul.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Olavz/hiofjul/issues"
+  },
+  "homepage": "https://github.com/Olavz/hiofjul#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.7.1"
+  }
+}
